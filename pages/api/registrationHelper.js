@@ -1,26 +1,17 @@
-import {useRouter} from 'next/router'
+require('./db_Helper');
+
+import { connection } from './db_Helper'
 
 export default function handler(req, res) {
- 
-    // Get just the username and password and put them into variables.
-    const username = req.body.username;
-    const pass = req.body.password;
-    const address = req.body.address;
-    const email = req.body.email;
-     
-    res.status(200).json("ok");
-    
-    const mysql = require('mysql2');
-  
-    // create the connection to database
-    const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'root',
-      port: 3306,
-      database: 'assignment1'
+
+     const username = req.body.username;
+     const pass = req.body.password;
+
+
+     connection.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
     });
-  //
   
     // simple query
   connection.query(
