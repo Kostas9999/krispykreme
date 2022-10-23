@@ -23,9 +23,11 @@ export default function handler(req, res) {
       // sending back the result.
       if(results.length == 1){
         console.log(results);
-        res.status(200).json("ok");
+       // res.status(200).json("ok");
       } 
-      else {res.status(200).json("fail");}
+      else {
+       // res.status(200).json("fail");
+      }
      
     }
     
