@@ -33,11 +33,11 @@ export default function Home({data}) {
         }
 
 
-        const response = await fetch(endpoint, options)
+        const response = await fetch(endpoint, options);
     
         // Get the response data from server as JSON.
-        const result = await response.json()
-        alert(`server result: ${result}`)
+        const result = await response.json();
+        alert(`server result: ${result}`);
 
         // redirect based on the result
      if(result == "ok"){ router.push("/manager");}

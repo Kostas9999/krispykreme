@@ -15,13 +15,13 @@ export default function handler(req, res) {
 
   connection.query(
     "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",
- //   function(err, results, fields) {
+    function(err, results, fields) {
      
       // sending back the result.
-     // if(results.length == 1){res.status(200).json("ok");} 
-    //  else { res.status(200).json("fail");}
+      if(results.length == 1){res.status(200).json("ok");} 
+     else { res.status(200).json("fail");}
      
-  //  }
+    }
     
   );
 
