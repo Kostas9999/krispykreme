@@ -42,7 +42,7 @@ export default function Home({data}) {
         alert(`server result: ${result}`)
 
         // redirect based on the result
-      if(result == "admin"){
+      if(result == "ok"){
  
         router.push("/manager");
       }
