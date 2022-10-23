@@ -18,6 +18,8 @@ export default function Home({data}) {
           username: event.target.username.value,
           password: event.target.password.value,
         }
+
+        //te
         
         const JSONdata = JSON.stringify(data)
 

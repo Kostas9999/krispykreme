@@ -18,7 +18,7 @@ export default function handler(req, res) {
     "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",
     function(err, results, fields) {
 
-     
+     //
    
       // sending back the result.
       if(results.length == 1){

@@ -20,7 +20,7 @@ export default function handler(req, res) {
       port: 3306,
       database: 'assignment1'
     });
-  
+  //
   
     // simple query
   connection.query(

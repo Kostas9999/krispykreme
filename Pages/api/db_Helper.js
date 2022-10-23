@@ -6,4 +6,4 @@ export const connection = mysql.createConnection({
     password: '9ccac70f',
     port: 3306,
     database: 'heroku_54b7530745c0825'
-  });
+  });//

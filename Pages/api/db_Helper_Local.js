@@ -6,4 +6,4 @@ export const connection = mysql.createConnection({
     password: 'root',
     port: 3306,
     database: 'assignment1'
-  });
+  });//
