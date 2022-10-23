@@ -38,7 +38,7 @@ export default function Home({data}) {
     
         // Get the response data from server as JSON.
         // If server returns the name submitted, that means the form works.
-        //const result = await response.json()
+        const result = await response.json()
         //alert(`server result: ${result}`)
 
         // redirect based on the result
