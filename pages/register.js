@@ -17,7 +17,7 @@ async function HandleSubmit(event) {
   
    const data = {
     username: event.target.username.value,
-     pass: event.target.pass.value,
+     pass: event.target.password.value,
      address: event.target.address.value,
      email: event.target.email.value,
    }
