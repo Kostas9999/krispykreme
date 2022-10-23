@@ -28,7 +28,10 @@ export default function Home({data}) {
 
         const options = {
           method: 'POST',        // The method is POST because we are sending data.
-          headers: {'Content-Type': 'application/json', }// Tell the server we're sending JSON.
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }// Tell the server we're sending JSON.
           ,
           body: JSONdata, // Body of the request is the JSON data we created above.
         }
