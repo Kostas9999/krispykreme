@@ -21,7 +21,7 @@ export default function Home({data}) {
         
         const JSONdata = JSON.stringify(data)
 
-        const endpoint = '/api/login'
+        const endpoint = '/api/db'
    
 
         const options = {
