@@ -22,12 +22,11 @@ export default function handler(req, res) {
 
  
     "INSERT INTO `heroku_54b7530745c0825`.`users` (`username`,`email`, `address`, `pass`) VALUES ('"+username+"',  '"+email+"' , '"+address+"', '"+pass+"');",
-    function(err, results, fields) {
-   
-    res.status(200).json("ok");
-    router.push("/customer");
-
-    });
+   ).then((results)=> {
+    if(results.length == 1){res.status(200).json("ok");} 
+    else { res.status(200).json("fail");}
+  
+  });;
 
   
   
