@@ -37,7 +37,7 @@ export default function Home({data}) {
     
         // Get the response data from server as JSON.
         const result = await response.text();
-    //   alert(`server result: ${result}`);
+     alert(`server result: ${result}`);
 
         // redirect based on the result
     // if(result == "ok"){ router.push("/manager");}
