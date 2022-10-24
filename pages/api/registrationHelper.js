@@ -10,8 +10,6 @@ export default function handler(req, res) {
      const email = req.body.email;
 
 
-    
-
      connection.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -20,8 +18,8 @@ export default function handler(req, res) {
     // simple query
   connection.query(
 
- 
-    "INSERT INTO `users` (`username`,`email`, `address`, `pass`) VALUES ('"+username+"',  '"+email+"' , '"+address+"', '"+pass+"');",
+    "INSERT INTO `heroku_54b7530745c0825`.`users` (`username`) VALUES ('t');"
+    //"INSERT INTO `users` (`username`,`email`, `address`, `pass`) VALUES ('"+username+"',  '"+email+"' , '"+address+"', '"+pass+"');",
    );
 
   
