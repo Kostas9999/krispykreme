@@ -1,6 +1,6 @@
-require('./db_Helper');
+require('./db_Clear_db');
 
-import { connection } from './db_Helper'
+import { connection } from './db_Clear_db'
 
 export default function handler(req, res) {
 
