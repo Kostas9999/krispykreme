@@ -1,6 +1,6 @@
-require('./db_Helper_Local');
+require('./db_test');
 
-import { connection } from './db_Helper_Local'
+import { connection } from './db_test'
 //connection.connect();
 export default function Handler(req, res) {
   
