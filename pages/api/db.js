@@ -1,6 +1,6 @@
-require('./db_test');
+require('./app');
 
-import { connection } from './db_test'
+import { connection } from './app'
 //connection.connect();
 export default function Handler(req, res) {
   
@@ -18,8 +18,8 @@ export default function Handler(req, res) {
      else { res.status(200).json("fail");}
 
       // sending back the result.
-    //  if(results.length == 1){res.status(200).json("ok");} 
-    // else { res.status(200).json("fail");}
+     if(results.length == 1){res.status(200).json("ok");} 
+     else { res.status(200).json("fail");}
      
     }
     

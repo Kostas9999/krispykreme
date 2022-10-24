@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "mysql2": "^2.3.3",
     "next": "^12.3.1",
     "prohairesis": "^1.2.5",
