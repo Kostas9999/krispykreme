@@ -1,8 +1,9 @@
-require('./app');
+//require('./db_Clear_db');
+import { connection } from './db_Clear_db'
 
-import { connection } from './app'
-//connection.connect();
 export default function Handler(req, res) {
+
+ 
   
      const username = req.body.username;
      const pass = req.body.password;
@@ -23,7 +24,10 @@ export default function Handler(req, res) {
      
     }
     
-  );
+  ).then((res)=> {
+    console.log(res);
+  
+  });
  
   }
       
