@@ -11,11 +11,7 @@ export default function Handler(req, res) {
 
   connection.query(
     "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",
-    function(err, results, fields) {
-
  
-     
-    }
     
   ).then((results)=> {
     if(results.length == 1){res.status(200).json("ok");} 
