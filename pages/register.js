@@ -39,8 +39,8 @@ async function HandleSubmit(event) {
 
    // Get the response data from server as JSON.
    // If server returns the name submitted, that means the form works.
-   const result = await response.json()
-   alert(`server result: ${result}`)
+   //const result = await response.json()
+   alert(`done!`)
  
 
 
