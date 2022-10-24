@@ -10,14 +10,8 @@ export default function Handler(req, res) {
  
 
   connection.query(
-    "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",
- 
-    
-  ).then((results)=> {
-    if(results.length == 1){res.status(200).json("ok");} 
-    else { res.status(200).json("fail");}
-
-     // sending back the result.
+    "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",)
+    .then((results)=> {
     if(results.length == 1){res.status(200).json("ok");} 
     else { res.status(200).json("fail");}
   

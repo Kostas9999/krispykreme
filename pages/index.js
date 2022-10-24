@@ -1,6 +1,7 @@
 
 
 import Link from 'next/link'
+import Navbar from '../templates/navbar';
 
 import {useRouter} from 'next/router'
 
@@ -47,7 +48,7 @@ export default function Home({data}) {
   
   return (
     <>
-    
+    <Navbar />
     <div style={{
             display: 'flex',
             alignItems: 'center',
