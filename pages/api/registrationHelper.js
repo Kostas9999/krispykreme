@@ -21,12 +21,8 @@ export default function handler(req, res) {
   connection.query(
 
  
-    "INSERT INTO `heroku_54b7530745c0825`.`users` (`username`,`email`, `address`, `pass`) VALUES ('"+username+"',  '"+email+"' , '"+address+"', '"+pass+"');",
-   ).then((results)=> {
-    if(results.length == 1){res.status(200).json("ok");} 
-    else { res.status(200).json("fail");}
-  
-  });;
+    "INSERT INTO `users` (`username`,`email`, `address`, `pass`) VALUES ('"+username+"',  '"+email+"' , '"+address+"', '"+pass+"');",
+   );
 
   
   
