@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-
+import Navbar from '../templates/navbar';
 
 async function HandleSubmit(event) {
 
@@ -51,15 +51,8 @@ async function HandleSubmit(event) {
 export default function register() {
   return (
         <>
-      
-      <Link href="/api/hello"> user JSON</Link><br></br>
-      <Link href="./"> Home </Link><br></br>
-              <Link href="customer"> Customer </Link><br></br>
-              <Link href="checkout"> Checkout </Link><br></br>
-              <Link href="manager"> Manager </Link><br></br>
-              <Link href="register"> Register </Link><br></br>
-
-
+      <Navbar />
+  
               <div style={{
             display: 'flex',
             alignItems: 'center',

@@ -4,11 +4,10 @@ export default function Navbar(){
         <nav className="nav">
         <ul>
             <li>
-                <a href="/checkout">Checkout</a>
-                <a href="/checkout">Checkout</a>
-                <a href="/checkout">Checkout</a>
-                <a href="/checkout">Checkout</a>
-                <a href="/checkout">Checkout</a>
+                <a href="/">Home</a>
+                <a href="/customer">Customer</a>
+                <a href="/manager">Manager</a>
+                <a href="/register">Register</a>
                 <a href="/checkout">Checkout</a>
             </li>
         </ul>
