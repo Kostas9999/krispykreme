@@ -2,6 +2,12 @@
 
 import Link from 'next/link'
 import Navbar from '../templates/navbar';
+import { NextUIProvider } from "@nextui-org/react"
+import { Container, Card, Row, Text, Col, Spacer } from "@nextui-org/react";
+import React from "react";
+import { Modal, Button, Input, Checkbox } from "@nextui-org/react";
+import { Mail } from "./js/Mail";
+import { Password } from "./js/Password";
 
 import {useRouter} from 'next/router'
 
@@ -10,6 +16,8 @@ export default function Home({data}) {
   const router = useRouter()
 
   async function handleSubmit(event) {
+      
+    
        event.preventDefault();
 
        const name = document.querySelector('#username').value
@@ -41,12 +49,139 @@ export default function Home({data}) {
      alert(`server result: ${result}`);
 
         // redirect based on the result
-     if(result == "ok"){ router.push("/manager");}
+     if(result == "admin"){ router.push("/manager");}
+     if(result == "user"){ router.push("/customer");}
     
   }
+
+
+
+  const [visible, setVisible] = React.useState(false);
+  const handler = () => setVisible(true);
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
   
   
   return (
+<NextUIProvider>
+
+<Navbar />
+    <Container gap={0}>
+      <Row gap={1}>
+        <Col>
+          <Card css={{ $$cardColor: '$colors$primary' }}>
+            <Card.Body>
+              <Text h6 size={15} color="white" css={{ m: 0 }}>
+                Krispy Kreme
+              </Text>
+
+              
+
+              <div>
+      <Button auto shadow onClick={handler}>
+        Login
+      </Button>
+
+   
+
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+     
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Welcome to
+            <Text b size={18}>
+              Krispy Kreme
+            </Text>
+          </Text>
+        </Modal.Header>
+        <form onSubmit={handleSubmit}>
+        <Modal.Body>
+ 
+          <Input
+          id="username"
+          name="username"
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Username"
+            contentLeft={<Mail fill="currentColor" />}
+          />
+          <Input
+          id="password"
+          name="password"
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Password"
+            contentLeft={<Password fill="currentColor" />}
+          />
+
+
+          <Row justify="space-between">
+            <Checkbox>
+              <Text size={14}>Remember me</Text>
+            </Checkbox>
+            <Text size={14}>Forgot password?</Text>
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+
+          <Button auto flat color="error" onClick={closeHandler}>
+            Close
+          </Button>
+
+
+          <Button type="submit" auto>
+            Sign in
+          </Button>
+        
+        </Modal.Footer>
+        </form>
+      </Modal>
+     
+    </div>
+  
+            </Card.Body>
+          </Card>
+        </Col>
+
+      </Row>
+      <Spacer y={1} />
+      <Row gap={1}>
+        <Col>
+          <Card css={{ $$cardColor: '$colors$primary' }}>
+            <Card.Body>
+              <Text h6 size={15} color="white" css={{ m: 0 }}>
+                Items
+              </Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+      </Row>
+    </Container>
+
+
+
+
+
+
+
+</NextUIProvider>
+
+    /*
     <>
     <Navbar />
     <div style={{
@@ -75,6 +210,9 @@ export default function Home({data}) {
 
 
     </>
+
+    */
   )
+  
 }
 
