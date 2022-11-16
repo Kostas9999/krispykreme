@@ -77,7 +77,16 @@ export default function App() {
       <Navbar isBordered variant="sticky">
         <Navbar.Brand>
         <Navbar.Content hideIn="xs">
-          <Navbar.Link isActive  href="./">Krispy Kreme</Navbar.Link>
+          <Navbar.Link isActive  href="./"> 
+          <Text size={35}
+        css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 50%",
+        }}
+       
+      >
+        Krispy Kreme
+      </Text>
+            </Navbar.Link>
           
         </Navbar.Content>
         </Navbar.Brand>
@@ -107,7 +116,7 @@ export default function App() {
         <Modal.Header>
           <Text id="modal-title" size={18}>
             Welcome to <br></br>
-            <Text b size={18}>
+            <Text b size={24}>
               Krispy Kreme
             </Text>
           </Text>
