@@ -5,19 +5,13 @@ import { Modal,  Input, Checkbox } from "@nextui-org/react";
 import lnk from 'next/link'
 import { Mail } from "../js/Mail";
 import { Password } from "../js/Password";
-
+import {useRouter} from 'next/router'
 
 export default function App() {
 
-
-
-
-
-
-
-
+  const router = useRouter()
   async function handleSubmit(event) {
-      
+   
     
     event.preventDefault();
 
@@ -49,15 +43,18 @@ export default function App() {
      const result = await response.json();
   // alert(`server result: ${result}`);
 
+ // document.getElementById("login").style.display="none";
+
      // redirect based on the result
-  if(result == "admin"){ router.push("/manager");}
+  if(result == "admin"){ 
+
+   
+
+    router.push("/manager");
+  }
   if(result == "user"){ router.push("/customer");}
  
 }
-
-
-
-
 
 
 
@@ -88,19 +85,20 @@ export default function App() {
           <Navbar.Link block  href="./">Shop</Navbar.Link>
           <Navbar.Link block href="./">Customer</Navbar.Link>
           <Navbar.Link block href="./manager">Manager</Navbar.Link>
-          <Navbar.Link block href="./customer">Checkout</Navbar.Link>
+          <Navbar.Link block href="./customer">Cart</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>
 
 
 
-        <Button auto shadow onPress={handler}>
+        <Button  id="login"  auto shadow onPress={handler}>
         Login
       </Button>
 
 
       <Modal
         closeButton
+        blur
         aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
@@ -117,7 +115,7 @@ export default function App() {
 
         <form onSubmit={handleSubmit}>
         <Modal.Body> 
-        <label htmlFor="UserName">UserName</label>
+   
           <Input
           aria-label="Username"
           id="username"
@@ -130,7 +128,7 @@ export default function App() {
             placeholder="Username"
             contentLeft={<Mail fill="currentColor" />}
           />
-          <label htmlFor="password">UserName</label>
+ 
           <Input
           aria-label="password"
           id="password"
@@ -148,7 +146,7 @@ export default function App() {
         </Modal.Body>
         <Modal.Footer>
 
-          <Button auto flat color="error" onClick={closeHandler}>
+          <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
 

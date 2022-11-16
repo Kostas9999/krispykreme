@@ -73,7 +73,12 @@ export default function Customer() {
         
    Customer page<p></p>
    <form onSubmit={handleSubmit}>
-   Bacon Qty: <Input id="baconQty"></Input>
+   Bacon Qty: 
+   <Input
+    aria-label="baconQty"
+    id="baconQty">
+
+    </Input>
 
   
   Update Bacon
