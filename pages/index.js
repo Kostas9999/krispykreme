@@ -135,7 +135,7 @@ export default function Home({data}) {
                 weight="bold"
                 transform="uppercase"
               >
-                Add to Cart 
+               
               </Text>
             </Card.Body>
             <Card.Footer
