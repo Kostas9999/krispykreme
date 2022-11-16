@@ -46,7 +46,7 @@ export default function Home({data}) {
     
         // Get the response data from server as JSON.
         const result = await response.json();
-     alert(`server result: ${result}`);
+     // alert(`server result: ${result}`);
 
         // redirect based on the result
      if(result == "admin"){ router.push("/manager");}
@@ -61,13 +61,13 @@ export default function Home({data}) {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
+   
   };
   
   
   return (
 <NextUIProvider>
-
+<Navbar />
 
     <Container gap={0}>
       <Row gap={1}>
@@ -81,7 +81,7 @@ export default function Home({data}) {
               
 
               <div>
-      <Button auto shadow onClick={handler}>
+      <Button auto shadow onPress={handler}>
         Login
       </Button>
 
@@ -105,7 +105,9 @@ export default function Home({data}) {
 
         <form onSubmit={handleSubmit}>
         <Modal.Body> 
+        <label htmlFor="UserName">UserName</label>
           <Input
+          aria-label="Username"
           id="username"
           name="username"
             clearable
@@ -116,7 +118,9 @@ export default function Home({data}) {
             placeholder="Username"
             contentLeft={<Mail fill="currentColor" />}
           />
+          <label htmlFor="password">UserName</label>
           <Input
+          aria-label="password"
           id="password"
           name="password"
             clearable
