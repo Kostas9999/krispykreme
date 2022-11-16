@@ -81,12 +81,12 @@ export default function Home({data}) {
 <Container>
       <Card css={{ $$cardColor: '$colors$primary' }}>
       <Card.Body css={{ p: 0 }}>
+        
               <Card.Image
                 src={"https://filedn.eu/laylI9rT8UjYMnCgviybMrh/KrispyKreme/images/donuts-3.png" }
                 objectFit="cover"
                 width="100%"
-                height={200}
-                
+                height={400}
               />
             </Card.Body>
             <Card.Footer
@@ -130,7 +130,7 @@ export default function Home({data}) {
               />
 
                 <Text
-                color="blue"
+                color="light-blue"
                 size={12}
                 weight="bold"
                 transform="uppercase"
