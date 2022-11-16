@@ -5,7 +5,7 @@ import { NextUIProvider } from "@nextui-org/react"
 import { Table, useAsyncList } from "@nextui-org/react";
 
 
-export default function manager() {
+export default function app() {
   const columns = [
     { name: "Name", uid: "name" },
     { name: "Height", uid: "height" },
