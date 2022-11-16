@@ -6,8 +6,8 @@ import { NextUIProvider } from "@nextui-org/react"
 import { Container, Card, Row, Text, Col, Spacer } from "@nextui-org/react";
 import React from "react";
 import { Modal, Button, Input, Checkbox } from "@nextui-org/react";
-import { Mail } from "./js/Mail";
-import { Password } from "./js/Password";
+import { Mail } from "../js/Mail";
+import { Password } from "../js/Password";
 
 import {useRouter} from 'next/router'
 
@@ -68,7 +68,7 @@ export default function Home({data}) {
   return (
 <NextUIProvider>
 
-<Navbar />
+
     <Container gap={0}>
       <Row gap={1}>
         <Col>
@@ -96,15 +96,15 @@ export default function Home({data}) {
      
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            Welcome to
+            Welcome to <br></br>
             <Text b size={18}>
               Krispy Kreme
             </Text>
           </Text>
         </Modal.Header>
+
         <form onSubmit={handleSubmit}>
-        <Modal.Body>
- 
+        <Modal.Body> 
           <Input
           id="username"
           name="username"
@@ -129,12 +129,6 @@ export default function Home({data}) {
           />
 
 
-          <Row justify="space-between">
-            <Checkbox>
-              <Text size={14}>Remember me</Text>
-            </Checkbox>
-            <Text size={14}>Forgot password?</Text>
-          </Row>
         </Modal.Body>
         <Modal.Footer>
 
