@@ -4,23 +4,14 @@ import { IconButton } from "../templates/table/IconButton";
 import { EyeIcon } from "../templates/table/EyeIcon";
 import { EditIcon } from "../templates/table/EditIcon";
 import { DeleteIcon } from "../templates/table/DeleteIcon";
-
 //import { Table } from '@nextui-org/react';
 import Navbar from "../templates/navbar";
 
-
-async function handleSubmit_Reg() {
-
+export default function App({products}) {
 
 
 
-}
 
-
-export default  function App({products}) {
-
- 
-  handleSubmit_Reg()
 
   const columns = [
     { name: "NAME", uid: "username" },
@@ -135,9 +126,7 @@ export default  function App({products}) {
 export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch('http://localhost:3000/api/db_getUser')
-  const productss = await res.json()
-
-  let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},]
+  const products = await res.json()
 
   // Pass data to the page via props
   return { props: { products } }
