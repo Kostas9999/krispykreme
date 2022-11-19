@@ -8,13 +8,10 @@ export default function Handler(req, res) {
   connection.query(
     "SELECT * FROM users WHERE username = '"+username+"' AND pass = '"+pass+"' LIMIT 1;",)
     .then((results)=> {
-      var acctype = results[0].type;
-    if(acctype == 'admin'){      
-      res.status(200).json('admin');
+      if(results != ""){
+        res.status(200).json(results[0].type);
     } 
-    else if(acctype == 'user'){ res.status(200).json('user');}
-    else { res.status(200).json("fail");}
-  
+      else{console.log("User not found")}
   });
  
   }
