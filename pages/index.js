@@ -5,75 +5,10 @@ import React from "react";
 
 
 
-// import {useRouter} from 'next/router'
 
-
-export default function Home({data}) {
- // const router = useRouter()
-
- const list = [
-  {
-    title: "Donut",
-    img: "images/donuts-1.png",
-    price: "5.50eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-2.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-3.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-4.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-5.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut 2",
-    img: "images/donuts-6.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-7.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-8.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-8.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-7.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-8.png",
-    price: "3.00eur",
-  },
-  {
-    title: "Donut",
-    img: "images/donuts-8.png",
-    price: "3.00eur",
-  },
-];
+export default function Home({products}) {
   
+
   return (
 <NextUIProvider>
 <Navbar />
@@ -114,29 +49,30 @@ export default function Home({data}) {
     </Container>
   
 
-
-
     <Grid.Container gap={2} justify="flex-start">
-      {list.map((item, index) => (
+      {products.map((item, index) => (
         <Grid xs={6} sm={3} key={index}>
           <Card isPressable>
             <Card.Body css={{ p: 0 }}>
+
+            <Text
+                color="light-blue"
+                size={12}
+                weight="bold"
+                transform="uppercase"
+              >
+                
+               {item.title}
+              </Text>
               <Card.Image
-                src={"https://filedn.eu/laylI9rT8UjYMnCgviybMrh/KrispyKreme/" + item.img}
+                src={"https://filedn.eu/laylI9rT8UjYMnCgviybMrh/KrispyKreme/images/" + item.img}
                 objectFit="cover"
                 width="100%"
                 height={240}
                 alt={item.title}
               />
 
-                <Text
-                color="light-blue"
-                size={12}
-                weight="bold"
-                transform="uppercase"
-              >
-               
-              </Text>
+              
             </Card.Body>
             <Card.Footer
 
@@ -182,3 +118,11 @@ export default function Home({data}) {
   
 }
 
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch('http://localhost:3000/api/db_getProducts')
+  const products = await res.json()
+
+  // Pass data to the page via props
+  return { props: { products } }
+}

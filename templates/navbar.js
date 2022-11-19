@@ -10,27 +10,28 @@ import {useRouter} from 'next/router'
 export default function App() {
 
   const router = useRouter()
+
+
+
   async function handleSubmit_Reg(event) {
 
     event.preventDefault();
 
-   
-
     const name_Reg = document.querySelector('#username_Reg').value
     const mail_Reg = document.querySelector('#email_Reg').value
+    const address_Reg = document.querySelector('#address_Reg').value
     const pass_Reg = document.querySelector('#password_Reg').value
 
     const data_Reg = {
       username_Reg: event.target.username_Reg.value,
       email_Reg: event.target.email_Reg.value,
-      password: event.target.password_Reg.value,
+      address_Reg: event.target.address_Reg.value,
+      password_Reg: event.target.password_Reg.value,
     }
 
     const JSONdata = JSON.stringify(data_Reg)
 
-
-    
-    const endpoint = '/api/db'/////////////////////////////////////////////////////////////////////// to register
+    const endpoint = '/api/db_Register'
    
 
     const options = {
@@ -39,15 +40,11 @@ export default function App() {
       body: JSONdata, // Body of the request is the JSON data we created above.
     }
 
-
     const response = await fetch(endpoint, options);
-
+ 
     // Get the response data from server as JSON.
     const result = await response.json();
 
-
-
-   
   }
 
   async function handleSubmit_Login(event) {
@@ -67,7 +64,7 @@ export default function App() {
      
      const JSONdata = JSON.stringify(data)
 
-     const endpoint = '/api/db'
+     const endpoint = '/api/db_Login'
 
 
      const options = {
@@ -254,6 +251,19 @@ export default function App() {
             color="primary"
             size="sm"
             placeholder="Email"
+            contentLeft={<Mail fill="currentColor" />}
+          />
+
+<Input
+          aria-label="address_Reg"
+          id="address_Reg"
+          name="address_Reg"
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="sm"
+            placeholder="Address"
             contentLeft={<Mail fill="currentColor" />}
           />
  
