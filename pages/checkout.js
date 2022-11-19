@@ -6,7 +6,7 @@ import Navbar from '../templates/navbar';
 import { NextUIProvider } from "@nextui-org/react"
 
 
-export default function Checkout({data}) {
+export default  function Checkout({data}) {
   return (
     <NextUIProvider>
     <Navbar />
@@ -27,13 +27,6 @@ export default function Checkout({data}) {
 }
 
 
-
-
-
-
-
-// make a call to the API to get the cart data
-// before the page loads
 
 
 
