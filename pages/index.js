@@ -11,7 +11,7 @@ async function handleOrderSubmit(event) {
  
   event.preventDefault();
 
-  console.log(event)
+ 
   const qty = document.querySelector("#product").value
   const prod_id = document.querySelector("#product").getAttribute("aria-label")
 
@@ -22,9 +22,9 @@ async function handleOrderSubmit(event) {
    }
 
    const JSONdata = JSON.stringify(data)
+ 
 
-
-   const endpoint = 'https:/krispykreme.vercel.app/api/checkout'
+   const endpoint = 'http://localhost:3000/api/cart'
 
 
    const options = {

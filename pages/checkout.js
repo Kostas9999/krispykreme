@@ -38,7 +38,7 @@ const cart = req.session.cart;
 const data = {cart: cart}
 
 const JSONdata = JSON.stringify(data)
-const endpoint = "https:/krispykreme.vercel.app/api/savecart"
+const endpoint = "http://localhost:3000/api/savecart"
 
 
 

@@ -2,6 +2,8 @@ import { withIronSessionApiRoute } from "iron-session/next";
 
 export default withIronSessionApiRoute(
     async function customer(req, res) {
+
+      console.log("Adding to cart\n product Id:" + req.body.prod_id)
       
      // get the variables that were sent over
      var qty = req.body.qty;
