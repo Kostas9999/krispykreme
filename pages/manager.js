@@ -17,9 +17,9 @@ async function handleSubmit_Reg() {
 }
 
 
-export default  function App({productss}) {
+export default  function App({usr}) {
 
-  let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},];
+ // let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},];
  
   handleSubmit_Reg()
 
@@ -29,7 +29,7 @@ export default  function App({productss}) {
     { name: "ADDRESS", uid: "address" },
     { name: "ACTIONS", uid: "actions" },
   ];
-  const users = products;
+  const users = usr;
   const renderCell = (user, columnKey) => {
     const cellValue = user[columnKey];
     switch (columnKey) {
@@ -133,13 +133,13 @@ export default  function App({productss}) {
   
 }
 
-//export async function getServerSideProps() {
-  // Fetch data from external API
-  //const res = await fetch('http://localhost:3000/api/db_getUser')
-  //const productss = await res.json()
+export async function getServerSideProps() {
+ 
+  const res = await fetch('https://krispykreme.vercel.app/api/db_getUser')
+  const usr = await res.json()
 
-  //let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},]
 
-  // Pass data to the page via props
- // return { props: { products } }
-//}
+
+
+  return { props: { usr } }
+}
