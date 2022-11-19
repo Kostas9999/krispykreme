@@ -17,8 +17,9 @@ async function handleSubmit_Reg() {
 }
 
 
-export default  function App({products}) {
+export default  function App({productss}) {
 
+  let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},];
  
   handleSubmit_Reg()
 
@@ -132,13 +133,13 @@ export default  function App({products}) {
   
 }
 
-export async function getServerSideProps() {
+//export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch('http://localhost:3000/api/db_getUser')
-  const productss = await res.json()
+  //const res = await fetch('http://localhost:3000/api/db_getUser')
+  //const productss = await res.json()
 
-  let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},]
+  //let products =[{"id":1,"username":"admin","pass":"password","email":"admin@admin.com","type":"admin","address":"Dublin"},]
 
   // Pass data to the page via props
-  return { props: { products } }
-}
+ // return { props: { products } }
+//}
