@@ -1,13 +1,13 @@
 //require('./db_Clear_db');
 import { connection } from './db_Clear_db'
 
-export default function Handler(req, res) {
+export default function Handler(res, response) {
 
 
   connection.query(
     "SELECT * FROM products;",).then((results)=> {
-   
-      res.status(200).json(results);
+     
+      response.status(200).json(results);
     })
   
  
