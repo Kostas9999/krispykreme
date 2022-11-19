@@ -118,13 +118,13 @@ export default function Home({productss}) {
   
 }
 
-export async function getServerSideProps() {
+//export async function getServerSideProps() {
   // Fetch data from external API
  // const res = await fetch('http://localhost:3000/api/db_getProducts')
  // const productss = await res.json()
 
-  products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
+//  products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
 
   // Pass data to the page via props
-  return { props: { productss } }
-}
+//  return { props: { productss } }
+//}
