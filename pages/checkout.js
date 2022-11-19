@@ -43,6 +43,30 @@ export const getServerSideProps = withIronSessionSsr(
   console.log("getting data from session..");
   console.log(req.session.cart);
 
+
+
+
+const cart = req.session.cart;
+
+
+
+const data = {cart: cart}
+
+const JSONdata = JSON.stringify(data)
+const endpoint = "https://krispykreme.vercel.app/api/savecart"
+
+
+
+ const options = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json',},
+  body: JSONdata,
+}
+
+
+const response = await fetch(endpoint,options);
+
+
     return {
       props: {
         data: req.session.cart,
