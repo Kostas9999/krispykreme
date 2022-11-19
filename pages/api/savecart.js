@@ -5,14 +5,17 @@ import { connection } from './db_Clear_db'
 export default function handler(req, res) {
 
 
-     const productID = req.body.cart;
-     //const email = req.body.email_Reg;
+     const productID = req.body.cart.productID;
+     const quantity = req.body.cart.quantity;
   
- 
+     
+// check if user exist
+  
+    // simple query
   connection.query(
 
    
-    "INSERT INTO `cart` (`productID`) VALUES ('"+productID+"');",
+    "INSERT INTO `cart` (`productID`,`quantity`) VALUES ('"+productID+"', '"+quantity+"');",
    ).then((results)=> {
 
 
