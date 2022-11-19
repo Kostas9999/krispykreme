@@ -11,7 +11,7 @@ export default function Home({products}) {
 
   return (
 <NextUIProvider>
-<Navbar />
+
 
 <Container>
       <Card css={{ $$cardColor: '$colors$primary' }}>
@@ -121,9 +121,9 @@ export default function Home({products}) {
 export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch('http://localhost:3000/api/db_getProducts')
-  const productss = await res.json()
+  const products = await res.json()
 
-  let products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
+  //let products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
 
   // Pass data to the page via props
   return { props: { products } }
