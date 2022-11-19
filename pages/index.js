@@ -11,53 +11,33 @@ async function handleOrderSubmit(event) {
  
   event.preventDefault();
 
-
-  // grab the variables from the form.
-
   console.log(event)
   const qty = document.querySelector("#product").value
   const prod_id = document.querySelector("#product").getAttribute("aria-label")
 
 
- 
-
    const data = {
     qty: qty,
     prod_id: prod_id,
-
    }
 
-   // Send the data to the server in JSON format.
    const JSONdata = JSON.stringify(data)
 
-   // API endpoint where we send form data.
-   const endpoint = '/api/cart'
+
+   const endpoint = '/api/checkout'
 
 
-
-   // Form the request for sending data to the server.
    const options = {
-     // The method is POST because we are sending data.
      method: 'POST',
-     // Tell the server we're sending JSON.
-     headers: {
-       'Content-Type': 'application/json',
-     },
-     // Body of the request is the JSON data we created above.
+     headers: {'Content-Type': 'application/json',},
      body: JSONdata,
    }
 
-   
-
-   // Send the form data to our forms API on Vercel and get a response.
    const response = await fetch(endpoint, options)
 
    const result = await response.json()
    
-   alert(result)
-
-
-
+ 
 }
 
 

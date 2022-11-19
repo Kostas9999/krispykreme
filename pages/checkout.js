@@ -39,16 +39,8 @@ export default function Checkout({data}) {
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
-  
-  console.log("getting data from session..");
-  console.log(req.session.cart);
-
-
-
 
 const cart = req.session.cart;
-
-
 
 const data = {cart: cart}
 
