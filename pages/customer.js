@@ -69,8 +69,8 @@ export default function Customer() {
   return (
 <NextUIProvider>
          <Navbar />
-       
-        
+
+         
    Customer page<p></p>
    <form onSubmit={handleSubmit}>
    Bacon Qty: 

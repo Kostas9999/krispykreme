@@ -4,17 +4,19 @@ export default withIronSessionApiRoute(
     async function customer(req, res) {
       
      // get the variables that were sent over
-     var baconQty = req.body.baconQty;
+     var qty = req.body.qty;
+     var prod_id = req.body.prod_id;
 
      // add the items to the cart object.
       req.session.cart = {
-        bacon: baconQty
+        quantity: qty,
+        productID: prod_id
        
       };
       await req.session.save();
 
       // send back a message that it went to plan!
-      res.status(200).json("updated cart");
+      res.status(200).json("Quantity: " + qty + "\nProduct_ID: " + prod_id);
 
 
     },

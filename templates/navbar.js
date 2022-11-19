@@ -92,9 +92,10 @@ export default function App() {
         </Navbar.Brand>
         <Navbar.Content hideIn="xs">
           <Navbar.Link block  href="./">Shop</Navbar.Link>
-          <Navbar.Link block href="./">Customer</Navbar.Link>
+          <Navbar.Link block href="./customer">Customer</Navbar.Link>
+          <Navbar.Link block href="./checkout">checkout</Navbar.Link>
           <Navbar.Link block href="./manager">Manager</Navbar.Link>
-          <Navbar.Link block href="./customer">Cart</Navbar.Link>
+         
         </Navbar.Content>
         <Navbar.Content>
 
@@ -138,7 +139,7 @@ export default function App() {
             contentLeft={<Mail fill="currentColor" />}
           />
  
-          <Input
+          <Input.Password
           aria-label="password"
           id="password"
           name="password"

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { withIronSessionApiRoute } from "iron-session/next";
 import { withIronSessionSsr } from "iron-session/next";
-import { Navbar } from "@nextui-org/react";
+import Navbar from '../templates/navbar';
 import { NextUIProvider } from "@nextui-org/react"
 
 
