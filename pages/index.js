@@ -6,7 +6,7 @@ import React from "react";
 
 
 
-export default function Home() {
+export default function Home({productss}) {
 
   let products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
   return (
@@ -118,3 +118,13 @@ export default function Home() {
   
 }
 
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch('http://localhost:3000/api/db_getProducts')
+  const productss = await res.json()
+
+  //let products = [{"productID":1,"title":"Donut","price":0.1,"img":"donuts-1.png","description":"desc"},]
+
+  // Pass data to the page via props
+  return { props: { productss } }
+}
