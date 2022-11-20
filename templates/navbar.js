@@ -15,7 +15,7 @@ import { Badge, Avatar, Spacer } from "@nextui-org/react";
 export default function App() {
 
   async function weatherCall() {
-    const response = await fetch("./api/weather");
+    const response = await fetch("https://krispykreme.vercel.app/api/weather");
  
 // Get the response data from server as JSON.
 const weather = await response.json();
