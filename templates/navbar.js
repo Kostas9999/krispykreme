@@ -15,7 +15,7 @@ import { Badge, Avatar, Spacer } from "@nextui-org/react";
 export default function App() {
 
   async function weatherCall() {
-    const response = await fetch("/api/weather");
+    const response = await fetch("https:/krispykreme.vercel.app/api/weather");
  
 // Get the response data from server as JSON.
 const weather = await response.json();
@@ -179,7 +179,6 @@ weatherCall()
         </Navbar.Brand>
         <Navbar.Content hideIn="xs">
           <Navbar.Link block  href="./">Shop</Navbar.Link>
-          <Navbar.Link block href="./weather">weather</Navbar.Link>
           <Navbar.Link block href="./checkout">checkout</Navbar.Link>
           <Navbar.Link block href="./manager">Manager</Navbar.Link>
         </Navbar.Content>
