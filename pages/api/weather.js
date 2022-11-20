@@ -1,5 +1,5 @@
 const axios = require("axios");
-let wet;
+
 
 export default  async function app(req,res) {
     const options = {
