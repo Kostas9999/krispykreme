@@ -24,7 +24,7 @@ async function handleOrderSubmit(event) {
    const JSONdata = JSON.stringify(data)
  
 
-   const endpoint = 'http://localhost:3000/api/cart'
+   const endpoint = 'https://krispykreme.vercel.app/api/cart'
 
 
    const options = {
