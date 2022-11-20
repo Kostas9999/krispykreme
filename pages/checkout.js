@@ -7,6 +7,8 @@ import { NextUIProvider } from "@nextui-org/react"
 
 
 export default  function Checkout({data}) {
+
+ 
   return (
     <NextUIProvider>
     <Navbar />
@@ -20,7 +22,7 @@ export default  function Checkout({data}) {
    Thanks for the order!
     
    <br></br>
-        {JSON.stringify(data)}
+       {JSON.stringify(data)}
 
         </NextUIProvider>
   )
@@ -32,30 +34,38 @@ export default  function Checkout({data}) {
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
-
+    
+   
+  
 const cart = req.session.cart;
 
-const data = {cart: cart}
 
-const JSONdata = JSON.stringify(data)
-const endpoint = "http://localhost:3000/api/savecart"
+cart.forEach((product, i) => 
+{
 
-
-
- const options = {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json',},
-  body: JSONdata,
+  const JSONdata = JSON.stringify(product)
+  console.log(JSONdata)
+  const endpoint = "http://localhost:3000/api/savecart"
+  
+   const options = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json',},
+    body: JSONdata,
+  }
+  
+  
+  const response =  fetch(endpoint,options);
 }
-
-
-const response = await fetch(endpoint,options);
+);
 
 
     return {
+      
       props: {
         data: req.session.cart,
+        
       },
+   
     };
   }, // -------------------- All boilerplate code for sessions ------------------------------------
   {

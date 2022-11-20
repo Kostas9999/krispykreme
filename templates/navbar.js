@@ -6,12 +6,35 @@ import lnk from 'next/link'
 import { Mail } from "../js/Mail";
 import { Password } from "../js/Password";
 import {useRouter} from 'next/router'
+const axios = require("axios");
+import {  Grid, } from "@nextui-org/react";
+import { Badge, Avatar, Spacer } from "@nextui-org/react";
+
+
 
 export default function App() {
+
+  async function weatherCall() {
+    const response = await fetch("/api/weather");
+ 
+// Get the response data from server as JSON.
+const weather = await response.json();
+const wet_Ico =   `https://assetambee.s3-us-west-2.amazonaws.com/weatherIcons/PNG/${weather.icon}.png`
+document.querySelector('#weatherBadge').textContent =weather.temperature
+const img = document.querySelector('#weatherAvatar').childNodes[1].src = wet_Ico
+
+  }
+
+
+
+weatherCall()
+
+
 
   const router = useRouter()
 
 
+ //const wet_Ico =   `https://assetambee.s3-us-west-2.amazonaws.com/weatherIcons/PNG/${weather.icon}.png`
 
   async function handleSubmit_Reg(event) {
 
@@ -110,10 +133,30 @@ export default function App() {
   const closeHandler_Reg = () => { setVisible_Reg(false);};
   
   return (
+
+
+
+
+
+
+
+    
     <Layout>
       <Navbar variant="sticky">
         <Navbar.Brand>
         <Navbar.Content hideIn="xs">
+
+        <Grid >
+    <Badge id= "weatherBadge"
+    disableOutline content="t" size="20">
+      <Avatar id= "weatherAvatar"
+        rounded
+        size="lg"
+        src= " "
+      />
+    </Badge>
+  </Grid>
+
           <Navbar.Link isActive  href="./"> 
           <Text size={35}
         css={{
@@ -124,12 +167,20 @@ export default function App() {
         Krispy Kreme
       </Text>
             </Navbar.Link>
-          
+            <Grid.Container>
+
+<Spacer y={0.5} />
+<Grid.Container gap={1}>
+
+ 
+</Grid.Container>
+</Grid.Container>
         </Navbar.Content>
         </Navbar.Brand>
         <Navbar.Content hideIn="xs">
           <Navbar.Link block  href="./">Shop</Navbar.Link>
-          <Navbar.Link block href="./checkout">Cart</Navbar.Link>
+          <Navbar.Link block href="./weather">weather</Navbar.Link>
+          <Navbar.Link block href="./checkout">checkout</Navbar.Link>
           <Navbar.Link block href="./manager">Manager</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>

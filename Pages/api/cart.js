@@ -1,25 +1,27 @@
 import { withIronSessionApiRoute } from "iron-session/next";
-
+var ses=[];
 export default withIronSessionApiRoute(
     async function customer(req, res) {
 
-      console.log("Adding to cart\n product Id:" + req.body.prod_id)
-      
-     // get the variables that were sent over
      var qty = req.body.qty;
      var prod_id = req.body.prod_id;
 
-     // add the items to the cart object.
-      req.session.cart = {
-        quantity: qty,
-        productID: prod_id
-       
-      };
+
+    
+    ses.push({ 
+      productID: prod_id,
+     quantity: qty      
+    });
+
+      req.session.cart = ses;
+  
+     
+      
       await req.session.save();
 
-      // send back a message that it went to plan!
-      res.status(200).json("Quantity: " + qty + "\nProduct_ID: " + prod_id);
-
+     console.log(`Cart is saved to session!!!`)
+     console.log(req.session.cart)
+     res.status(200).json("cart updated!!")
 
     },
     {

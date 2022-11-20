@@ -12,8 +12,8 @@ async function handleOrderSubmit(event) {
   event.preventDefault();
 
  
-  const qty = document.querySelector("#product").value
-  const prod_id = document.querySelector("#product").getAttribute("aria-label")
+  const qty = event.target[0].value
+  const prod_id = event.target.ariaLabel
 
 
    const data = {
@@ -35,7 +35,7 @@ async function handleOrderSubmit(event) {
 
    const response = await fetch(endpoint, options)
 
-   const result = await response.json()
+  
    
  
 }
@@ -131,7 +131,9 @@ export default function Home({products}) {
               </Row>
      
 
-    <form onSubmit={handleOrderSubmit}>
+    <form
+    aria-label={item.id}
+    onSubmit={handleOrderSubmit}>
   
     <Input
         css={{
