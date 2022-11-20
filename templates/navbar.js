@@ -15,13 +15,24 @@ import { Badge, Avatar, Spacer } from "@nextui-org/react";
 export default function App() {
 
   async function weatherCall() {
-    const response = await fetch("api/weather");
- 
-// Get the response data from server as JSON.
-const weather = await response.json();
+    const options = {
+      "method": "GET",
+
+      "url": "https://api.ambeedata.com/weather/latest/by-lat-lng?lat=53.3&lng=-6.2&units=si",
+      "headers": {
+          "x-api-key": "657be8dfc0cdd842c2e6c29b106f056b8f63aa409392ac6a7b8c0bdae54032be",
+          "Content-type": "application/json"
+      }
+  };
+
+let w = await axios.request(options);
+const weather = w.data.data;
+
 const wet_Ico =   `https://assetambee.s3-us-west-2.amazonaws.com/weatherIcons/PNG/${weather.icon}.png`
-document.querySelector('#weatherBadge').textContent =weather.temperature
-const img = document.querySelector('#weatherAvatar').childNodes[1].src = wet_Ico
+if(typeof document !== 'undefined'){
+document.querySelector('#weatherBadge').textContent = weather.temperature
+document.querySelector('#weatherAvatar').childNodes[1].src = wet_Ico
+}
 
   }
 

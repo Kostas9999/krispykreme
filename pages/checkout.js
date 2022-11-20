@@ -45,7 +45,7 @@ cart.forEach((product, i) =>
 
   const JSONdata = JSON.stringify(product)
   console.log(JSONdata)
-  const endpoint = "http://localhost:3000/api/savecart"
+  const endpoint = "https:/krispykreme.vercel.app/api/savecart"
   
    const options = {
     method: 'POST',
