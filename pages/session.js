@@ -10,22 +10,15 @@ export default  function Checkout({data}) {
 
 
   return (
-    <NextUIProvider>
-    <Navbar />
+  
   
  
-    
-    Hello there!
-  
-   
-   <br></br>
-   Thanks for the order!
-    
-   <br></br>
-       {JSON.stringify(data)}
+    <> {JSON.stringify(data)}</>
+ 
+      
       
 
-        </NextUIProvider>
+       
   )
 }
 
@@ -38,26 +31,10 @@ export const getServerSideProps = withIronSessionSsr(
     
    
   
-const cart = req.session.cart;
 
 
-cart.forEach((product, i) => 
-{
 
-  const JSONdata = JSON.stringify(product)
-  console.log(JSONdata)
-  const endpoint = 'http://localhost:3000/api/savecart'
-  
-   const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json',},
-    body: JSONdata,
-  }
-  
-  const response =  fetch(endpoint,options);
-}
 
-)
 
     return {
       

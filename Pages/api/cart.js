@@ -6,7 +6,6 @@ export default withIronSessionApiRoute(
      var qty = req.body.qty;
      var prod_id = req.body.prod_id;
 
-
     
     ses.push({ 
       productID: prod_id,
@@ -15,8 +14,6 @@ export default withIronSessionApiRoute(
 
       req.session.cart = ses;
   
-     
-      
       await req.session.save();
 
      console.log(`Cart is saved to session!!!`)

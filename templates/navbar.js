@@ -5,14 +5,33 @@ import { Modal,  Input, Checkbox } from "@nextui-org/react";
 import lnk from 'next/link'
 import { Mail } from "../js/Mail";
 import { Password } from "../js/Password";
+import { CartIcon } from "../js/CartIcon";
 import {useRouter} from 'next/router'
 const axios = require("axios");
-import {  Grid, } from "@nextui-org/react";
+import {  Grid, styled } from "@nextui-org/react";
 import { Badge, Avatar, Spacer } from "@nextui-org/react";
+import { withIronSessionSsr } from "iron-session/next";
+import { withIronSession } from "next-iron-session";
 
 
 
-export default function App() {
+
+export default function App({data}) {
+
+
+ 
+
+  const StyledButton = styled("button", {
+    background: "transparent",
+    border: "none",
+    cursor: "pointer",
+    '&:active': {
+      opacity: 0.8,
+    }
+  });
+
+
+
 
   async function weatherCall() {
     const options = {
@@ -30,13 +49,13 @@ const weather = w.data.data;
 
 const wet_Ico =   `https://assetambee.s3-us-west-2.amazonaws.com/weatherIcons/PNG/${weather.icon}.png`
 if(typeof document !== 'undefined'){
-document.querySelector('#weatherBadge').textContent = weather.temperature
+document.querySelector('#weatherBadge').textContent = weather.temperature.toFixed(1) +"º"
 document.querySelector('#weatherAvatar').childNodes[1].src = wet_Ico
 }
 
   }
 
-
+ 
 
 weatherCall()
 
@@ -44,8 +63,6 @@ weatherCall()
 
   const router = useRouter()
 
-
- //const wet_Ico =   `https://assetambee.s3-us-west-2.amazonaws.com/weatherIcons/PNG/${weather.icon}.png`
 
   async function handleSubmit_Reg(event) {
 
@@ -139,6 +156,7 @@ weatherCall()
 
   const handler_Login = () => setVisible_Login(true);
   const handler_Reg = () => setVisible_Reg(true);
+ 
 
   const closeHandler_Login = () => { setVisible_Login(false);};
   const closeHandler_Reg = () => { setVisible_Reg(false);};
@@ -157,16 +175,7 @@ weatherCall()
         <Navbar.Brand>
         <Navbar.Content hideIn="xs">
 
-        <Grid >
-    <Badge id= "weatherBadge"
-    disableOutline content="t" size="20">
-      <Avatar id= "weatherAvatar"
-        rounded
-        size="lg"
-        src= " "
-      />
-    </Badge>
-  </Grid>
+        
 
           <Navbar.Link isActive  href="./"> 
           <Text size={35}
@@ -190,7 +199,6 @@ weatherCall()
         </Navbar.Brand>
         <Navbar.Content hideIn="xs">
           <Navbar.Link block  href="./">Shop</Navbar.Link>
-          <Navbar.Link block href="./checkout">checkout</Navbar.Link>
           <Navbar.Link block href="./manager">Manager</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>
@@ -364,13 +372,37 @@ weatherCall()
         Register
       </Button>
 
-
-
-
           </Navbar.Item>
+          
+        
+        <StyledButton 
+          href="./checkout"
+        aria-label="more than 99 notifications">
+
+          <Link href="./checkout">
+          <Badge color="error" content="." shape="circle">
+          <CartIcon  size="40"/>
+          </Badge>
+          </Link>
+        </StyledButton>
+    
+      
 
         </Navbar.Content>
       </Navbar>
+    
+      
+     
+    <Badge id= "weatherBadge"  
+    disableOutline content="t" size="20">
+      <Avatar id= "weatherAvatar"
+        rounded
+        size="lg"
+        src= " "
+      />
+    </Badge>
+   
+      
     
     </Layout>
   )
