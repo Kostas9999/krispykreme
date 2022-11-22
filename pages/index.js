@@ -43,7 +43,9 @@ async function handleOrderSubmit(event) {
 
 
 
-export default function Home({products}) {
+export default function Home(props) {
+
+  let products = props.products
 
   return (
 <NextUIProvider>
@@ -182,5 +184,6 @@ export async function getServerSideProps() {
   const res = await fetch('https://krispykreme.vercel.app/api/db_getProducts')
  const products = await res.json()
 
-  return { props: { products } }
+
+  return { props: { products : products  } }
 }
